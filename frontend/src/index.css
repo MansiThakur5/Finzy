@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+/* VerdantMind deep-space palette overrides */
+body {
+  background-color: #08080F;
+  color: #E2E8F0;
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #252530; border-radius: 2px; }
+
+/* Standard Card Styles */
+.vm-card {
+  background: #1E1E2A;
+  border: 1px solid #2A2A35;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.vm-stat-card {
+  background: #1E1E2A;
+  border: 1px solid #2A2A35;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+/* Hide scrollbars cleanly */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
