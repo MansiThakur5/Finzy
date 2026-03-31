@@ -9,7 +9,8 @@ import analyticsRoutes from './routes/analyticsRoutes';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = Number(process.env.PORT) || 5000;
+// const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
@@ -26,6 +27,20 @@ app.get('/api/health', (req, res) => {
 });
 
 // Start Server
+const startServer = async () => {
+  try {
+    await connectDB(); // connect DB first
+
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+
+  } catch (error) {
+    console.error("Server failed to start:", error);
+  }
+};
+
+startServer();
 app.listen(PORT, async () => {
   await connectDB();
   console.log(`Server is running on port ${PORT}`);
